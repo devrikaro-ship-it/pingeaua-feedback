@@ -248,6 +248,9 @@
         <label class="choice"><input type="radio" name="ora" value="11:00">11:00</label>
         <label class="choice"><input type="radio" name="ora" value="Altceva">Altceva</label>
       </div>
+      <div id="ora-wrap" style="display:none;margin-top:12px">
+        <input type="text" name="ora_propusa" placeholder="Propune tu altă oră">
+      </div>
     </div>
 
     <div class="q">
@@ -298,6 +301,14 @@
       const wrap = document.getElementById('telefon-wrap');
       if (r.value === 'Da, lasă-mi mesaj' && r.checked) wrap.classList.add('show');
       else wrap.classList.remove('show');
+    });
+  });
+
+  // Show "propune ora" only when "Altceva" is picked
+  document.querySelectorAll('input[name="ora"]').forEach(r => {
+    r.addEventListener('change', () => {
+      const wrap = document.getElementById('ora-wrap');
+      wrap.style.display = (r.value === 'Altceva' && r.checked) ? 'block' : 'none';
     });
   });
 </script>
