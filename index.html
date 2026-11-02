@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cum a fost primul antrenament? — Pingeaua</title>
+<style>
+  :root{
+    --verde:#2e7d4f;
+    --verde-dk:#1e5e3a;
+    --galben:#f5c842;
+    --ink:#1a1a1a;
+    --paper:#faf7f0;
+    --muted:#6b6b6b;
+    --line:#e3dfd3;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.5;
+    padding:24px 16px 80px;
+  }
+  .wrap{max-width:620px;margin:0 auto}
+  header{
+    text-align:center;
+    padding:24px 0 32px;
+  }
+  .logo{
+    display:inline-block;
+    background:var(--verde);
+    color:var(--galben);
+    font-weight:800;
+    font-size:22px;
+    letter-spacing:.5px;
+    padding:8px 18px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  h1{
+    font-size:28px;
+    margin:0 0 10px;
+    line-height:1.2;
+  }
+  .lead{
+    color:var(--muted);
+    font-size:16px;
+    margin:0;
+  }
+  form{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:28px 24px;
+    box-shadow:0 1px 2px rgba(0,0,0,.04);
+  }
+  .q{
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .q:first-child{padding-top:4px}
+  .q:last-of-type{border-bottom:none;padding-bottom:4px}
+  .q label.label{
+    display:block;
+    font-weight:600;
+    font-size:16px;
+    margin-bottom:12px;
+  }
+  .q .req{color:#c0392b;margin-left:4px}
+  .q .help{
+    font-size:14px;
+    color:var(--muted);
+    margin:-6px 0 12px;
+  }
+  .scale{
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+    margin-bottom:6px;
+  }
+  .scale input[type="radio"]{display:none}
+  .scale label{
+    flex:1;
+    text-align:center;
+    padding:12px 0;
+    border:2px solid var(--line);
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:all .15s;
+    background:#fff;
+  }
+  .scale label:hover{border-color:var(--verde)}
+  .scale input[type="radio"]:checked + label{
+    background:var(--verde);
+    color:#fff;
+    border-color:var(--verde);
+  }
+  .scale-ends{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:var(--muted);
+    margin-top:2px;
+  }
+  .choices{display:flex;flex-direction:column;gap:10px}
+  .choice{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 14px;
+    border:2px solid var(--line);
+    border-radius:10px;
+    cursor:pointer;
+    background:#fff;
+    transition:all .15s;
+  }
+  .choice:hover{border-color:var(--verde)}
+  .choice input[type="radio"]{
+    width:18px;height:18px;
+    accent-color:var(--verde);
+    margin:0;
+    flex-shrink:0;
+  }
+  .choice.selected{
+    border-color:var(--verde);
+    background:#eaf5ee;
+  }
+  input[type="text"],textarea{
+    width:100%;
+    padding:12px 14px;
+    border:2px solid var(--line);
+    border-radius:10px;
+    font-size:16px;
+    font-family:inherit;
+    background:#fff;
+    outline:none;
+    transition:border-color .15s;
+  }
+  input[type="text"]:focus,textarea:focus{border-color:var(--verde)}
+  textarea{min-height:90px;resize:vertical}
+  .submit{
+    display:block;
+    width:100%;
+    padding:16px 24px;
+    background:var(--verde);
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:28px;
+    transition:background .15s;
+  }
+  .submit:hover{background:var(--verde-dk)}
+  .foot{
+    text-align:center;
+    color:var(--muted);
+    font-size:14px;
+    margin-top:20px;
+  }
+  #telefon-wrap{display:none}
+  #telefon-wrap.show{display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">Pingeaua</div>
+    <h1>Cum a fost primul antrenament?</h1>
+    <p class="lead">Mersi că ai venit sâmbătă! Vrem să știm cum a fost pentru tine. Max 2 minute, promitem.</p>
+  </header>
+
+  <form action="https://formsubmit.co/hello@pingeaua.ro" method="POST">
+    <input type="hidden" name="_subject" value="Feedback antrenament gratuit — Pingeaua">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://devrikaro-ship-it.github.io/pingeaua-feedback/multumim.html">
+
+    <div class="q">
+      <label class="label">Cum ți s-a părut antrenamentul?<span class="req">*</span></label>
+      <div class="scale">
+        <input type="radio" id="n1" name="nota" value="1" required><label for="n1">1</label>
+        <input type="radio" id="n2" name="nota" value="2"><label for="n2">2</label>
+        <input type="radio" id="n3" name="nota" value="3"><label for="n3">3</label>
+        <input type="radio" id="n4" name="nota" value="4"><label for="n4">4</label>
+        <input type="radio" id="n5" name="nota" value="5"><label for="n5">5</label>
+      </div>
+      <div class="scale-ends"><span>Slab</span><span>Super</span></div>
+    </div>
+
+    <div class="q">
+      <label class="label">Cum a fost intensitatea?<span class="req">*</span></label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="intensitate" value="Prea ușoară" required>Prea ușoară</label>
+        <label class="choice"><input type="radio" name="intensitate" value="Fix ce trebuie">Fix ce trebuie</label>
+        <label class="choice"><input type="radio" name="intensitate" value="Prea mult pentru mine">Prea mult pentru mine</label>
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="label">Ce ți-a plăcut cel mai mult?<span class="req">*</span></label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="place" value="Antrenamentul" required>Antrenamentul</label>
+        <label class="choice"><input type="radio" name="place" value="Meciul">Meciul</label>
+        <label class="choice"><input type="radio" name="place" value="Staff-ul">Staff-ul</label>
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="label" for="schimba">Ce ai schimba?</label>
+      <p class="help">Opțional. Scrie orice, inclusiv „nimic".</p>
+      <textarea id="schimba" name="schimba" placeholder="..."></textarea>
+    </div>
+
+    <div class="q">
+      <label class="label">Vrei să continui?<span class="req">*</span></label>
+      <p class="help">La primul abonament ai o ofertă — îți spunem detaliile când te sunăm.</p>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="continuare" value="Da, mă abonez" required>Da, mă abonez</label>
+        <label class="choice"><input type="radio" name="continuare" value="Nu sunt sigur">Nu sunt sigur</label>
+        <label class="choice"><input type="radio" name="continuare" value="Nu e pentru mine">Nu e pentru mine</label>
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="label">Ce oră îți convine cel mai bine?<span class="req">*</span></label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="ora" value="9:00" required>9:00</label>
+        <label class="choice"><input type="radio" name="ora" value="10:00">10:00</label>
+        <label class="choice"><input type="radio" name="ora" value="11:00">11:00</label>
+        <label class="choice"><input type="radio" name="ora" value="Altceva">Altceva</label>
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="label">Ai aduce un prieten dacă îi facem invitație?<span class="req">*</span></label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="prieten" value="Sigur" required>Sigur</label>
+        <label class="choice"><input type="radio" name="prieten" value="Probabil">Probabil</label>
+        <label class="choice"><input type="radio" name="prieten" value="Nu">Nu</label>
+        <label class="choice"><input type="radio" name="prieten" value="Deja i-am spus">Deja i-am spus</label>
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="label">Vrei să te sunăm cu detalii despre abonament?<span class="req">*</span></label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="sunare" value="Nu, mersi" required>Nu, mersi</label>
+        <label class="choice"><input type="radio" name="sunare" value="Da, lasă-mi mesaj">Da, lasă-mi mesaj</label>
+      </div>
+      <div id="telefon-wrap" style="margin-top:14px">
+        <input type="text" name="nume_telefon" placeholder="Nume + telefon">
+      </div>
+    </div>
+
+    <button type="submit" class="submit">Trimite feedback-ul</button>
+    <p class="foot">Mersi — citim fiecare răspuns.</p>
+  </form>
+</div>
+
+<script>
+  // Highlight selected choice visually
+  document.querySelectorAll('.choice input[type="radio"]').forEach(r => {
+    r.addEventListener('change', () => {
+      const groupName = r.name;
+      document.querySelectorAll(`input[name="${groupName}"]`).forEach(x => x.closest('.choice')?.classList.remove('selected'));
+      r.closest('.choice').classList.add('selected');
+    });
+  });
+
+  // Show nume+telefon only when "Da, lasă-mi mesaj" is picked
+  document.querySelectorAll('input[name="sunare"]').forEach(r => {
+    r.addEventListener('change', () => {
+      const wrap = document.getElementById('telefon-wrap');
+      if (r.value === 'Da, lasă-mi mesaj' && r.checked) wrap.classList.add('show');
+      else wrap.classList.remove('show');
+    });
+  });
+</script>
+</body>
+</html>
