@@ -118,11 +118,25 @@
     transition:all .15s;
   }
   .choice:hover{border-color:var(--verde)}
-  .choice input[type="radio"]{
+  .choice input[type="radio"],
+  .choice input[type="checkbox"]{
     width:18px;height:18px;
     accent-color:var(--verde);
     margin:0;
     flex-shrink:0;
+  }
+  .section-title{
+    font-size:18px;
+    font-weight:700;
+    margin:28px 0 6px;
+    color:var(--verde-dk);
+    padding-top:22px;
+    border-top:1px solid var(--line);
+  }
+  .section-sub{
+    color:var(--muted);
+    font-size:14px;
+    margin:0 0 10px;
   }
   .choice.selected{
     border-color:var(--verde);
@@ -190,6 +204,8 @@
         <input type="radio" id="n5" name="nota" value="5"><label for="n5">5</label>
       </div>
       <div class="scale-ends"><span>Slab</span><span>Super</span></div>
+      <textarea name="nota_bine" placeholder="Ce a fost bine? (opțional)" style="margin-top:14px"></textarea>
+      <textarea name="nota_rau" placeholder="Ce nu a fost bine? (opțional)" style="margin-top:10px"></textarea>
     </div>
 
     <div class="q">
@@ -204,10 +220,11 @@
 
     <div class="q">
       <label class="label">Ce ți-a plăcut cel mai mult?<span class="req">*</span></label>
+      <p class="help">Bifează tot ce se potrivește.</p>
       <div class="choices">
-        <label class="choice"><input type="radio" name="place" value="Antrenamentul" required>Antrenamentul</label>
-        <label class="choice"><input type="radio" name="place" value="Meciul">Meciul</label>
-        <label class="choice"><input type="radio" name="place" value="Staff-ul">Staff-ul</label>
+        <label class="choice"><input type="checkbox" name="place" value="Antrenamentul">Antrenamentul</label>
+        <label class="choice"><input type="checkbox" name="place" value="Meciul">Meciul</label>
+        <label class="choice"><input type="checkbox" name="place" value="Staff-ul">Staff-ul</label>
       </div>
       <textarea name="place_detaliu" placeholder="Ce anume? (opțional)" style="margin-top:12px"></textarea>
     </div>
@@ -240,21 +257,57 @@
       <textarea name="continuare_detaliu" placeholder="De ce? (opțional)" style="margin-top:12px"></textarea>
     </div>
 
+    <div class="section-title">Program</div>
+    <p class="section-sub">Ce ar funcționa pentru tine ca ritm săptămânal.</p>
+
     <div class="q">
-      <label class="label">Ce oră îți convine cel mai bine?<span class="req">*</span></label>
+      <label class="label">Câte zile pe săptămână ai vrea să te antrenezi?<span class="req">*</span></label>
       <div class="choices">
-        <label class="choice"><input type="radio" name="ora" value="9:00" required>9:00</label>
-        <label class="choice"><input type="radio" name="ora" value="10:00">10:00</label>
-        <label class="choice"><input type="radio" name="ora" value="11:00">11:00</label>
-        <label class="choice"><input type="radio" name="ora" value="Altceva">Altceva</label>
-      </div>
-      <div id="ora-wrap" style="display:none;margin-top:12px">
-        <input type="text" name="ora_propusa" placeholder="Propune tu altă oră">
+        <label class="choice"><input type="radio" name="zile" value="1" required>1 zi</label>
+        <label class="choice"><input type="radio" name="zile" value="2">2 zile</label>
+        <label class="choice"><input type="radio" name="zile" value="3">3 zile</label>
+        <label class="choice"><input type="radio" name="zile" value="4+">4 sau mai multe</label>
       </div>
     </div>
 
     <div class="q">
-      <label class="label">Ai aduce un prieten dacă îi facem invitație?<span class="req">*</span></label>
+      <label class="label">Când ai vrea să fie antrenamentele?<span class="req">*</span></label>
+      <p class="help">Bifează ce ți se potrivește.</p>
+      <div class="choices">
+        <label class="choice"><input type="checkbox" name="cand" value="Luni-Vineri">Luni–Vineri</label>
+        <label class="choice"><input type="checkbox" name="cand" value="Weekend">Weekend</label>
+      </div>
+    </div>
+
+    <div class="q" id="ora-lv-wrap" style="display:none">
+      <label class="label">La ce oră în timpul săptămânii?</label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="ora_lv" value="Dimineața (6-9)">Dimineața (6-9)</label>
+        <label class="choice"><input type="radio" name="ora_lv" value="Prânz (12-14)">Prânz (12-14)</label>
+        <label class="choice"><input type="radio" name="ora_lv" value="După muncă (17-20)">După muncă (17-20)</label>
+        <label class="choice"><input type="radio" name="ora_lv" value="Seara târziu (20+)">Seara târziu (20+)</label>
+        <label class="choice"><input type="radio" name="ora_lv" value="Altceva">Altceva</label>
+      </div>
+      <div id="ora-lv-text" style="display:none;margin-top:12px">
+        <input type="text" name="ora_lv_text" placeholder="Propune tu altă oră">
+      </div>
+    </div>
+
+    <div class="q" id="ora-wk-wrap" style="display:none">
+      <label class="label">La ce oră în weekend?</label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="ora_wk" value="Dimineața (8-11)">Dimineața (8-11)</label>
+        <label class="choice"><input type="radio" name="ora_wk" value="Prânz / după-amiază (12-16)">Prânz / după-amiază (12-16)</label>
+        <label class="choice"><input type="radio" name="ora_wk" value="Seara (17-20)">Seara (17-20)</label>
+        <label class="choice"><input type="radio" name="ora_wk" value="Altceva">Altceva</label>
+      </div>
+      <div id="ora-wk-text" style="display:none;margin-top:12px">
+        <input type="text" name="ora_wk_text" placeholder="Propune tu altă oră">
+      </div>
+    </div>
+
+    <div class="q">
+      <label class="label">Ai aduce un prieten (sau mai mulți) pentru 20% reducere timp de 3 luni?<span class="req">*</span></label>
       <div class="choices">
         <label class="choice"><input type="radio" name="prieten" value="Sigur" required>Sigur</label>
         <label class="choice"><input type="radio" name="prieten" value="Probabil">Probabil</label>
@@ -286,12 +339,16 @@
 </div>
 
 <script>
-  // Highlight selected choice visually
+  // Highlight selected (radio = single, checkbox = multi)
   document.querySelectorAll('.choice input[type="radio"]').forEach(r => {
     r.addEventListener('change', () => {
-      const groupName = r.name;
-      document.querySelectorAll(`input[name="${groupName}"]`).forEach(x => x.closest('.choice')?.classList.remove('selected'));
+      document.querySelectorAll(`input[name="${r.name}"]`).forEach(x => x.closest('.choice')?.classList.remove('selected'));
       r.closest('.choice').classList.add('selected');
+    });
+  });
+  document.querySelectorAll('.choice input[type="checkbox"]').forEach(c => {
+    c.addEventListener('change', () => {
+      c.closest('.choice').classList.toggle('selected', c.checked);
     });
   });
 
@@ -299,16 +356,28 @@
   document.querySelectorAll('input[name="sunare"]').forEach(r => {
     r.addEventListener('change', () => {
       const wrap = document.getElementById('telefon-wrap');
-      if (r.value === 'Da, lasă-mi mesaj' && r.checked) wrap.classList.add('show');
-      else wrap.classList.remove('show');
+      wrap.classList.toggle('show', r.value === 'Da, lasă-mi mesaj' && r.checked);
     });
   });
 
-  // Show "propune ora" only when "Altceva" is picked
-  document.querySelectorAll('input[name="ora"]').forEach(r => {
+  // Program: show ora LV / ora WK blocks based on "Când" checkbox
+  function syncProgramOre() {
+    const lv = document.querySelector('input[name="cand"][value="Luni-Vineri"]').checked;
+    const wk = document.querySelector('input[name="cand"][value="Weekend"]').checked;
+    document.getElementById('ora-lv-wrap').style.display = lv ? 'block' : 'none';
+    document.getElementById('ora-wk-wrap').style.display = wk ? 'block' : 'none';
+  }
+  document.querySelectorAll('input[name="cand"]').forEach(c => c.addEventListener('change', syncProgramOre));
+
+  // "Altceva" text fields for ora LV / WK
+  document.querySelectorAll('input[name="ora_lv"]').forEach(r => {
     r.addEventListener('change', () => {
-      const wrap = document.getElementById('ora-wrap');
-      wrap.style.display = (r.value === 'Altceva' && r.checked) ? 'block' : 'none';
+      document.getElementById('ora-lv-text').style.display = (r.value === 'Altceva' && r.checked) ? 'block' : 'none';
+    });
+  });
+  document.querySelectorAll('input[name="ora_wk"]').forEach(r => {
+    r.addEventListener('change', () => {
+      document.getElementById('ora-wk-text').style.display = (r.value === 'Altceva' && r.checked) ? 'block' : 'none';
     });
   });
 </script>
