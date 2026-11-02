@@ -199,6 +199,7 @@
         <label class="choice"><input type="radio" name="intensitate" value="Fix ce trebuie">Fix ce trebuie</label>
         <label class="choice"><input type="radio" name="intensitate" value="Prea mult pentru mine">Prea mult pentru mine</label>
       </div>
+      <textarea name="intensitate_detaliu" placeholder="Vrei să spui mai mult? (opțional)" style="margin-top:12px"></textarea>
     </div>
 
     <div class="q">
@@ -208,10 +209,22 @@
         <label class="choice"><input type="radio" name="place" value="Meciul">Meciul</label>
         <label class="choice"><input type="radio" name="place" value="Staff-ul">Staff-ul</label>
       </div>
+      <textarea name="place_detaliu" placeholder="Ce anume? (opțional)" style="margin-top:12px"></textarea>
     </div>
 
     <div class="q">
-      <label class="label" for="schimba">Ce ai schimba?</label>
+      <label class="label">Cum ți s-a părut terenul?<span class="req">*</span></label>
+      <p class="help">Locație, dotări, atmosferă — ce vrei tu.</p>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="teren" value="Mi-a plăcut mult" required>Mi-a plăcut mult</label>
+        <label class="choice"><input type="radio" name="teren" value="E ok">E ok</label>
+        <label class="choice"><input type="radio" name="teren" value="Nu prea mi-a plăcut">Nu prea mi-a plăcut</label>
+      </div>
+      <textarea name="teren_detaliu" placeholder="Ce te-a încântat sau deranjat? (opțional)" style="margin-top:12px"></textarea>
+    </div>
+
+    <div class="q">
+      <label class="label" for="schimba">Ce ai schimba la antrenament sau la cum e organizat?</label>
       <p class="help">Opțional. Scrie orice, inclusiv „nimic".</p>
       <textarea id="schimba" name="schimba" placeholder="..."></textarea>
     </div>
@@ -224,6 +237,7 @@
         <label class="choice"><input type="radio" name="continuare" value="Nu sunt sigur">Nu sunt sigur</label>
         <label class="choice"><input type="radio" name="continuare" value="Nu e pentru mine">Nu e pentru mine</label>
       </div>
+      <textarea name="continuare_detaliu" placeholder="De ce? (opțional)" style="margin-top:12px"></textarea>
     </div>
 
     <div class="q">
@@ -255,6 +269,12 @@
       <div id="telefon-wrap" style="margin-top:14px">
         <input type="text" name="nume_telefon" placeholder="Nume + telefon">
       </div>
+    </div>
+
+    <div class="q">
+      <label class="label" for="altceva">Alte gânduri? Orice ar fi.</label>
+      <p class="help">Opțional. Loc liber pentru ce n-am întrebat.</p>
+      <textarea id="altceva" name="altceva" placeholder="..."></textarea>
     </div>
 
     <button type="submit" class="submit">Trimite feedback-ul</button>
